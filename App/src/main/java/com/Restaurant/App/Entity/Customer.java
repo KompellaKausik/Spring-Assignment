@@ -15,8 +15,11 @@ public class Customer {
     @Column(name="customer_name")
     private String customerName;
 
-    @Column(name="customer_address")
+    @Column(name="custmer_address")
     private String customerAddress;
+
+    public Customer() {
+    }
 
     @Override
     public String toString() {

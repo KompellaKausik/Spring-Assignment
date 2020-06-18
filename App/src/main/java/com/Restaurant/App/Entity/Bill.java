@@ -22,11 +22,13 @@ public class Bill {
     @Column(name="customer_id'")
     private int customerId;
 
+    @Column(name="waiter_id")
+    private int waiterId;
+
     @Column(name="table_id")
     private int tableId;
 
-    @Column(name="waiter_id")
-    private int waiterId;
+
 
     @JsonFormat(pattern = "yyyy-mm-dd")
     @Column(name="bill_date")
