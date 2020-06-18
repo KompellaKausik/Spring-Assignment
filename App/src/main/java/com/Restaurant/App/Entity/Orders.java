@@ -1,20 +1,55 @@
 package com.Restaurant.App.Entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name="orders")
-public class Orders {
-    public Orders() {
-    }
+@Table(name = "orders")
+public class Orders{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="order_id")
+    @Column(name = "order_id")
     private int orderId;
+
+    @Column(name = "waiter_id")
+    private int waiterId;
+
+    @Column(name = "item_id")
+    private int itemId;
+
+    @Column(name = "table_id")
+    private int tableId;
+
+    @Column(name="order_status")
+    private boolean orderStatus;
+
+    @Column(name = "quantity")
+    private int quantity;
+
+    @Column(name = "order_value")
+    private int orderValue;
+
+    @Column(name = "customer_id")
+    private int customerId;
+
+    @Column(name = "date")
+    private Date date;
+
+    public Orders() {
+    }
+
+    public Orders(int orderId, int waiterId, int itemId, int tableId, boolean orderStatus, int quantity, int orderValue, int customerId, Date date) {
+        this.orderId = orderId;
+        this.waiterId = waiterId;
+        this.itemId = itemId;
+        this.tableId = tableId;
+        this.orderStatus = orderStatus;
+        this.quantity = quantity;
+        this.orderValue = orderValue;
+        this.customerId = customerId;
+        this.date = date;
+    }
 
     public int getOrderId() {
         return orderId;
@@ -22,33 +57,6 @@ public class Orders {
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public int getTableId() {
-        return tableId;
-    }
-
-    public void setTableId(int tableId) {
-        this.tableId = tableId;
-    }
-
-    public Orders(int orderId, int customerId, int tableId, int waiterId, int itemId, int orderStatus, int quantity, Date billDate) {
-        this.orderId = orderId;
-        this.customerId = customerId;
-        this.tableId = tableId;
-        this.waiterId = waiterId;
-        this.itemId = itemId;
-        this.orderStatus = orderStatus;
-        this.quantity = quantity;
-        this.billDate = billDate;
     }
 
     public int getWaiterId() {
@@ -67,11 +75,19 @@ public class Orders {
         this.itemId = itemId;
     }
 
-    public int getOrderStatus() {
+    public int getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(int tableId) {
+        this.tableId = tableId;
+    }
+
+    public boolean isOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(int orderStatus) {
+    public void setOrderStatus(boolean orderStatus) {
         this.orderStatus = orderStatus;
     }
 
@@ -83,37 +99,27 @@ public class Orders {
         this.quantity = quantity;
     }
 
-    public Date getBillDate() {
-        return billDate;
+    public int getOrderValue() {
+        return orderValue;
     }
 
-    public void setBillDate(Date billDate) {
-        this.billDate = billDate;
+    public void setOrderValue(int orderValue) {
+        this.orderValue = orderValue;
     }
 
-    @Column(name="customer_id'")
-    private int customerId;
+    public int getCustomerId() {
+        return customerId;
+    }
 
-    @Column(name="table_id")
-    private int tableId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
-    @Column(name="waiter_id")
-    private int waiterId;
+    public Date getDate() {
+        return date;
+    }
 
-
-    @Column(name = "item_id")
-    private int itemId;
-
-    @Column(name="order_status")
-    private int orderStatus;
-
-    @Column(name="quantity")
-    private int quantity;
-
-    @JsonFormat(pattern = "yyyy-mm-dd")
-    @Column(name = "bill_date")
-    private Date billDate;
-
-
-
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }

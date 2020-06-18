@@ -1,48 +1,41 @@
 package com.Restaurant.App.Entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
 import java.sql.Date;
 
-
-
 @Entity
 @Table(name="bill")
-public class Bill {
+public class Bill{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="bill_id")
+    @Column(name = "bill_id")
     private int billId;
 
     @Column(name = "bill_value")
     private int billValue;
 
-    @Column(name="customer_id'")
+    @Column(name = "customer_id")
     private int customerId;
 
-    @Column(name="waiter_id")
-    private int waiterId;
-
-    @Column(name="table_id")
+    @Column(name = "table_id")
     private int tableId;
 
-
-
     @JsonFormat(pattern = "yyyy-mm-dd")
-    @Column(name="bill_date")
+    @Column(name = "bill_date")
     private Date billDate;
 
     public Bill() {
     }
 
-    public Bill(int billId, int billValue, int customerId, int tableId, int waiterId, Date billDate) {
+    public Bill(int billId, int billValue, int customerId, int tableId, Date billDate) {
         this.billId = billId;
         this.billValue = billValue;
         this.customerId = customerId;
         this.tableId = tableId;
-        this.waiterId = waiterId;
         this.billDate = billDate;
     }
 
@@ -78,14 +71,6 @@ public class Bill {
         this.tableId = tableId;
     }
 
-    public int getWaiterId() {
-        return waiterId;
-    }
-
-    public void setWaiterId(int waiterId) {
-        this.waiterId = waiterId;
-    }
-
     public Date getBillDate() {
         return billDate;
     }
@@ -94,4 +79,3 @@ public class Bill {
         this.billDate = billDate;
     }
 }
-
